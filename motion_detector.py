@@ -97,6 +97,10 @@ def motion_detector(path, scale_percent=40, area=20, delta_thresh=5,
     """
     path: path to the video
     area: minimum area size.... TO INCLUDE!!!"""
+    
+    #if specified output folder doesn't exist, create it
+    if not os.path.exists(output_4csv):
+        os.mkdir(output_4csv)
 
     # read from a video file & initiate FramePerSec (FPS) count
     vs = cv2.VideoCapture(path)
@@ -237,7 +241,6 @@ def motion_detector(path, scale_percent=40, area=20, delta_thresh=5,
 
 
 # executable motion_detector
-#TO REPAIR ARGS!!
 if __name__ == "__main__":
     import sys
 
