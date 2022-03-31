@@ -41,6 +41,27 @@ def csv_name_creator(path, output_folder="/home/domi/Documents/video_processing/
 
     return new_path, first_stamp
 
+def npy_name_creator(path, output_folder="/home/domi/Documents/video_processing/CSV_data", rat="rat1"):
+    """path: folder+ file_name of the video
+    output_folder: where all the npy files should be stored
+    return:- a string path as input for np.save() fun"""
+
+    # extract name of the video
+    try:
+        found = re.search('Basler_(.+?).mp4', path).group(1)
+    except AttributeError:
+        # AAA, ZZZ not found in the original string
+        found = ''  # apply your error handling------------------------
+
+    # check whether the folder where you want to save it in exist, if not create it
+    if not os.path.isdir(output_folder):
+        os.mkdir(output_folder)
+
+    # new path
+    new_path = os.path.join(output_folder, found + "_{}.npy".format(rat))
+
+    return new_path
+
 
 # Frames per second counter
 class FPS:
@@ -93,6 +114,7 @@ def timestamping(ts_dict, frame_nb, millisec):
 
 
 def motion_detector(path, scale_percent=40, area=20, delta_thresh=5,
+                    fps_vs = 25,
                     output_4csv="/home/domi/Documents/video_processing/CSV_data"):
     """
     path: path to the video
@@ -121,17 +143,26 @@ def motion_detector(path, scale_percent=40, area=20, delta_thresh=5,
 
     # loop over the frames of the video
     n = 0
+
     while True:
         ret, frame = vs.read()  # ret says whether the frame exists
 
         if frame is None:
             break  # end of video if no more frames
 
-        # get timestamp of each frame...
-        frame_nb = n
-        millisec = str(vs.get(cv2.CAP_PROP_POS_MSEC))  # in millisecond
+        # # get timestamp of each frame...-----------------------------------------
+        # frame_nb = n
+        # millisec = str(vs.get(cv2.CAP_PROP_POS_MSEC))  # in millisecond
+        # ts_dict = timestamping(ts_dict=ts_dict,
+        #                        frame_nb=frame_nb,
+        #                        millisec=millisec)
+        
+        # get timestamp of each frame...---------------------------------------------
+        #n =+ n
+        #millisec = str(vs.get(cv2.CAP_PROP_POS_MSEC))  # in millisecond
+        millisec = (float(n)/fps_vs)*1000
         ts_dict = timestamping(ts_dict=ts_dict,
-                               frame_nb=frame_nb,
+                               frame_nb=n,
                                millisec=millisec)
 
         n += 1
