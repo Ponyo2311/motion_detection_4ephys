@@ -38,6 +38,8 @@ class Rat_coords:
         #create videocapture object to extract a frame
         vs_test = cv2.VideoCapture(path2vid)
         
+        #print(vs_test.get(cv2.CAP_PROP_FRAME_COUNT))
+        
         #get estimation of frame rate (n per second)
         fps_vs_test = vs_test.get(cv2.CAP_PROP_FPS)
         print("Estimated frame rate of the file: {}".format(fps_vs_test))
@@ -55,7 +57,7 @@ class Rat_coords:
         #frame.shape[0] gives y axis and [1] x axis!
         self.x = self.frame_test_gray.shape[1]
         self.y = self.frame_test_gray.shape[0]
-        
+        #print([self.x, self.y, self.frame_test_gray.shape])
         
         #STEP2: GET COORDS OF RAT1 & RAT2 cages
         self.fig = plt.figure()
@@ -92,7 +94,7 @@ class Rat_coords:
             #path2vid_test="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/Basler_acA1300-60gmNIR__21471690__20211207_113623925_SHORT.mp4"
             motion_detector_MVMwriter(co = self.coords_rat, 
                                       scale_percent = self.scale_percent,
-                                      #fw = self.x, fh = self.y, need for Writer object (not working)
+                                      fw = self.x, fh = self.y, #need for Writer object (not working)
                                       path = path2vid_test)
     
     def coord_extractor(self):
