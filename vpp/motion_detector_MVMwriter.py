@@ -29,8 +29,8 @@ def motion_detector_MVMwriter(co,
                               #rm, #rat movememnt calss object
                               scale_percent=50, area=20, delta_thresh=5,
                               plotting_realTime = False, #set this on if you wanna see the processing
-                    output_4csv="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/CSV_outputs/",
-                    output_4npy="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/NPY_outputs/"):
+                    output_4csv="/media/data-119/Rat628-20210714/",
+                    output_4npy="/media/data-119/Rat628-20210714/"):
                    # output_rat1_mp4="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/video_outputs/test_rat1{}".format(format_output),
                    # output_rat2_mp4="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/video_outputs/test_rat2.{}".format(format_output)):
     """
@@ -74,8 +74,10 @@ def motion_detector_MVMwriter(co,
                        shape=(2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width))
     #store shape of npy array into metada for reload
     json_str = {
-        "shape" : [2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width]
+        "shape4vidReconstraction" : [2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width],
+        "coordinatesOfFrameSelections" : coordinates #you can plot it later
         }
+    print("Expected n of frames: {}".format(vs.get(cv2.CAP_PROP_FRAME_COUNT)))
     
     #initiate PROCESSING FramePerSec (FPS) count
     fps = FPS().start()
@@ -177,6 +179,8 @@ def motion_detector_MVMwriter(co,
          
         #itter frame count
         n += 1
+        if n == 100:
+            print("processing...")
         
         if plotting_realTime:
             # DISPLAY VIDEOS (IT'S at least 2x LONGER THIS WAY... 92 vs. 177 FPS)
@@ -193,6 +197,7 @@ def motion_detector_MVMwriter(co,
     fps.stop()
     print("[INFO] elapsed time: {:.2f}".format(fps.elapsed()))
     print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
+    print("Processed number of frames: {}".format(n))
 
     # CLEAN UP videoCapture * videoWriter objects
     vs.release()

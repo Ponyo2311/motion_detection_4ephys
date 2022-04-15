@@ -6,7 +6,7 @@ import os
 import numpy as np
 
 
-def csv_name_creator(path, output_folder="/home/domi/Documents/video_processing/CSV_data"):
+def csv_name_creator(path, output_folder="/media/data-119/rat596_20210701_184333"):
     """path: folder+ file_name of the video
     output_folder: where all the csv files should be stored
     return:- a string path as input for pandas 'to_csv()' fun
@@ -41,7 +41,7 @@ def csv_name_creator(path, output_folder="/home/domi/Documents/video_processing/
 
     return new_path, first_stamp
 
-def npy_name_creator(path, output_folder="/home/domi/Documents/video_processing/CSV_data", rat="rat1"):
+def npy_name_creator(path, output_folder="/media/data-119/rat596_20210701_184333", rat="rat1"):
     """path: folder+ file_name of the video
     output_folder: where all the npy files should be stored
     return:- a string path as input for np.save() fun"""

@@ -2,9 +2,13 @@
 """
 Created on Mon Mar 21 19:01:31 2022
 
-@author: domin
+@author: domi
 """
-#imports
+#NOTES ABOUT RAT SLEEP
+#The study looked at 20 albino rats and recorded their sleeping 
+#and waking times between 8 a.m. and 8 p.m. Of those 12 hours, 
+#rats snoozed more than nine hours. The rest of the time they 
+#were awake and active, awake and resting, or half-awake.
 
 from motion_detector import resizing
 #from getting_coordinates_manual_CLASS import Rat_coords
@@ -15,8 +19,7 @@ from motion_detector_MVMwriter import motion_detector_MVMwriter
 
 
 #path to test video
-path2vid_test="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/Basler_acA1300-60gmNIR__21471690__20211207_113623925_SHORT_half_min.mp4"
-
+path2vid_test="/media/data-116/Neuropixels Info/Videos/W627-W628/"
 
 
 class Rat_coords:

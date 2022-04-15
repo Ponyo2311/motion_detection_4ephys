@@ -5,17 +5,16 @@ Created on Thu Mar 24 18:43:31 2022
 @author: domin
 """
 
-import pandas as pd
-import os
+
 from matplotlib.animation import FuncAnimation
 import matplotlib.pyplot as plt
-import copy
 
-path2output = "C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/CSV_outputs/"
-testing_CSV = os.path.join(path2output,"acA1300-60gmNIR__21471690__20211207_113623925_SHORT.csv")
 
-ts_dict = pd.read_csv(testing_CSV, sep= ",")
-#print(ts_dict.head())
+# path2output = "C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/CSV_outputs/"
+# testing_CSV = os.path.join(path2output,"acA1300-60gmNIR__21471690__20211207_113623925_SHORT.csv")
+
+# ts_dict = pd.read_csv(testing_CSV, sep= ",")
+# #print(ts_dict.head())
 
 class Rat_mvm:
     '''create object 'rat_movement':
