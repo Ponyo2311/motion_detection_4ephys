@@ -1,8 +1,9 @@
 # motion_detection_4ephys
 
-
-![ratsgif](https://user-images.githubusercontent.com/65451658/172926414-1a9c5103-29ff-405a-99e0-2b1184ac7db9.gif)
-
+<p align ="center">
+    <img src = "https://user-images.githubusercontent.com/65451658/172926414-1a9c5103-29ff-405a-99e0-2b1184ac7db9.gif">
+</p>
+<br>
 
 - Create movement variable from camera recording 
 - Manual selection of frame coordiantes for rats
