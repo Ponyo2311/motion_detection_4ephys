@@ -5,6 +5,12 @@
 </p>
 <br>
 
+
+
+
+https://user-images.githubusercontent.com/65451658/172928698-97b49229-6e7c-4dce-a6fb-0377e72669a4.mp4
+
+
 - Create movement variable from camera recording 
 - Manual selection of frame coordiantes for rats
 - Real time plots
