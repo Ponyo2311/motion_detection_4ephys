@@ -13,17 +13,16 @@
 - Synchronize with ephys time using .npy output from Basler
 
 # 1) Setting up environment
-Navigate to 
-- conda update conda
-- conda create --no-default-packages -n vidpenv python=3.7 anaconda
-- conda activate vidpenv
-- pip install jupyterlab
-- pip install ipykernel
-- python -m 
+conda update conda
+conda create --no-default-packages -n vidpenv python=3.7 anaconda
+conda activate vidpenv
+pip install jupyterlab
+pip install ipykernel
+python -m 
 
 
 
 # 3) Synchronizing + generation of .txt files:
 + Pipeline uses modules saved in vpp/utils<br>
-+ applied in notebook named Processing_movement_*<br>
++ applied in notebooks named 'Processing_Movement_*'<br>
 
