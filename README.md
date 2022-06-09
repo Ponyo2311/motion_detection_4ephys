@@ -30,7 +30,8 @@ jupyter kernelspec list<br>
 conda install spyder<br>
 
 # 2) Using Motion Detector
-
+!! The motion detector extracts the date from the name of the video, so don't change that one !!
+1) open vpp/video_processing/getting_manual_coordinates_CLASS.py, change the directory to video (path2vid_test). This path contains the name of the file as well (ends with .mp4
 
 # 3) Synchronizing + generation of .txt files:
 + Pipeline uses modules saved in vpp/utils<br>
