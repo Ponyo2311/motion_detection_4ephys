@@ -21,10 +21,12 @@ pip install ipykernel<br>
 python -m ipykernel install --user --name=vidpenv<br>
 pip install opencv-python<br>
 
-+ verify list of environements available in Jupyter (vidpenv should appear there)<br>
++ verify list of environements available in Jupyter (vidpenv should appear there)
+
 jupyter kernelspec list<br>
 
-+ instal spyder (if not installed yet)<br>
++ instal spyder (if not installed yet)
+
 conda install spyder<br>
 
 # 2) Using Motion Detector
