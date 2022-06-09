@@ -10,7 +10,6 @@ Created on Mon Mar 21 19:01:31 2022
 #rats snoozed more than nine hours. The rest of the time they 
 #were awake and active, awake and resting, or half-awake.
 
-
 from motion_detector import resizing
 #from getting_coordinates_manual_CLASS import Rat_coords
 from matplotlib.animation import FuncAnimation #to use for afterplot
@@ -19,8 +18,8 @@ import cv2
 from motion_detector_MVMwriter import motion_detector_MVMwriter
 
 
-#path to video
-path2vid_test="/media/data-119/Matthias_mvm/Rat596_20210701_104608/Basler_acA1300-60gmNIR__21471690__20210701_104608310.mp4"
+#path to test video
+path2vid_test="/media/data-116/Neuropixels Info/Videos/W627-W628/"
 
 
 class Rat_coords:

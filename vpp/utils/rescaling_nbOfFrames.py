@@ -50,7 +50,7 @@ def rescalingNOF(path2ephysTime, path2mvm, path2duration):
     mvm_test = np.concatenate(mvm_test)
     duration_test = np.concatenate(duration_test)
     
-    #determine which file has more entries
+    #determine which file has more entries (if fs = 25, than mvm should have more)
     if len(mvm_test)/len(ephys_time_test) > 1:
         file2rescale = "mvm_test"
     else: 
@@ -80,3 +80,7 @@ def rescalingNOF(path2ephysTime, path2mvm, path2duration):
                    mvm_test_copy)
         np.savetxt(os.path.join(folder, rat+"_duration_rescaled.txt"), 
                    duration_test_copy)
+    
+    #when the rescaled files are created, delete non-rescaled
+    os.remove(path2mvm)
+    os.remove(path2duration)

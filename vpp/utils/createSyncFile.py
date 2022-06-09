@@ -12,14 +12,14 @@ import os
 
 def syncFileCreator(TTL2_folder,
                     lfp_tmp_folder,
-                    output_sync_txt):
+                    output_sync_txt,
+                   saveORIfs =False):
     ''' 
     TTL2_folder : path to folder with TTL events;
     lfp_tmp_folder : path to folder with 'continuous' LFP recording;
-    output_sync_txt : where you want to save created timestamp (in original freq and in seconds) as .txt files
+    output_sync_txt : where you want to save created timestamp(s) as .txt files
+    saveORIfs : whether a timestamp in sampling freq of LFP should be created besides timestamp in seconds (in future steps we need the one in secs)
     '''
-    
-    TTL2_folder=TTL2_folder
     
     timestamps_events=np.load(os.path.join(TTL2_folder,"timestamps.npy"))
     channel_states=np.load(os.path.join(TTL2_folder,"channel_states.npy"))
@@ -45,7 +45,8 @@ def syncFileCreator(TTL2_folder,
     
     
     #save array as txt
-    np.savetxt(out4txt, timestamps_video_frames, fmt = "%d") #%d is decimal
+    if saveORIfs:
+        np.savetxt(out4txt, timestamps_video_frames, fmt = "%d") #%d is decimal
     np.savetxt(out4txt_secs, timestamps_video_frames_sec, fmt = "%f")
     # note: it's better to use np.savetxt - writer object will write it in a row..
     # #open writer object
@@ -57,9 +58,11 @@ def syncFileCreator(TTL2_folder,
     # file.close()
     
     
-    samp_freq_lfp=25 ## the sampling freq is 25 (==the fs of video) in TTL_2
-    len_of_vid_reco = len(timestamps_events)/(samp_freq_lfp*3600*2)
-    print("Length of the video should be: {} hours".format(len_of_vid_reco))
+    # #not accurate calculation------------------------CALC_OF_VID_LENGT
+    # samp_freq_lfp=25 ## the sampling freq is 25 (==the fs of video) in TTL_2
+    # len_of_vid_reco = len(timestamps_events)/(samp_freq_lfp*3600*2)
+    # print("Length of the video should be: approximately {} hours".format(len_of_vid_reco))
+    # print("This does not take in account the lag between start/end of ephys recording and video recording.")
 
     
 # ttl = "/media/data-102/2021-07-14_21-24-12/Record Node 101/experiment1/recording1/events/Neuropix-PXI-100.1/TTL_2/"

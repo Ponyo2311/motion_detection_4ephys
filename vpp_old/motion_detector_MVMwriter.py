@@ -28,9 +28,9 @@ def motion_detector_MVMwriter(co,
                               #coordinates, frame_width, frame_height,
                               #rm, #rat movememnt calss object
                               scale_percent=50, area=20, delta_thresh=5,
-                              plotting_realTime =True, #set this on if you wanna see the processing
-                    output_4csv="/media/data-119/Matthias_mvm/Rat596_20210701_104608/",
-                    output_4npy="/media/data-119/Matthias_mvm/Rat596_20210701_104608/"):
+                              plotting_realTime = False, #set this on if you wanna see the processing
+                    output_4csv="/media/data-119/Rat628-20210714/",
+                    output_4npy="/media/data-119/Rat628-20210714/"):
                    # output_rat1_mp4="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/video_outputs/test_rat1{}".format(format_output),
                    # output_rat2_mp4="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/video_outputs/test_rat2.{}".format(format_output)):
     """
@@ -70,11 +70,8 @@ def motion_detector_MVMwriter(co,
     #WRITE BIG ARRAY WITH NP.MEMMAP()
     newpath_npy = npy_name_creator(path, output_folder=output_4npy, rat="rat1&2")
     #carful.. vs.get(cv2.CAP_PROP_FRAME_COUNT) not accurate!
-    
-    # #crete mapping object to save big array#-----------------------------------------------------------------memmap
-    # npyMap = np.memmap(newpath_npy, dtype='uint8', mode='w+', 
-    #                    shape=(2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width))#-----------------
-    
+    npyMap = np.memmap(newpath_npy, dtype='uint8', mode='w+', 
+                       shape=(2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width))
     #store shape of npy array into metada for reload
     json_str = {
         "shape4vidReconstraction" : [2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width],
@@ -164,8 +161,8 @@ def motion_detector_MVMwriter(co,
             #append processed frames to list in uint8 format
             #arrList[i].append(thresh[i])
             
-            # #write into memmaped npy#--------------------------------------------------------------------------------memmap
-            # npyMap[i][n] = thresh[i]#-------------------------------------------------------------------------------------
+            #write into memmaped npy
+            npyMap[i][n] = thresh[i]
            
         #NOT WORKING
         # out_rat1.write(cv2.cvtColor(thresh[0], cv2.COLOR_GRAY2BGR))
@@ -204,7 +201,7 @@ def motion_detector_MVMwriter(co,
 
     # CLEAN UP videoCapture * videoWriter objects
     vs.release()
-    #del npyMap #deletion flushes memory changes to disk before removing the object#--------------------- memmap
+    del npyMap #deletion flushes memory changes to disk before removing the object
     if plotting_realTime:
         plt.close('all')
         cv2.destroyAllWindows()
