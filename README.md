@@ -13,13 +13,22 @@
 - Synchronize with ephys time using .npy output from Basler
 
 # 1) Setting up environment
-conda update conda
-conda create --no-default-packages -n vidpenv python=3.7 anaconda
-conda activate vidpenv
-pip install jupyterlab
-pip install ipykernel
-python -m 
+conda update conda<br>
+conda create --no-default-packages -n vidpenv python=3.7 anaconda<br>
+conda activate vidpenv<br>
+pip install jupyterlab<br>
+pip install ipykernel<br>
+python -m ipykernel install --user --name=vidpenv<br>
+pip install opencv-python<br>
+<br>
++ verify list of environements available in Jupyter (vidpenv should appear there)
+jupyter kernelspec list<br>
+<br>
++ instal spyder (if not installed yet)
+conda install spyder<br>
+<br>
 
+# 2) Using Motion Detector
 
 
 # 3) Synchronizing + generation of .txt files:
