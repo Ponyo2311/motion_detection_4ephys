@@ -75,7 +75,12 @@ class Rat_coords:
         
     
     def onclick_rats(self, event):
-        '''rat1 is on the left'''
+        '''rat1 is on the left
+        
+        Click from left to right, to upper and lower corner resp. to select frames for rats.
+        
+        After 4 clicks, the processing starts.        
+        '''
             
         tx = 'button=%d, x=%d, y=%d, xdata=%f, ydata=%f' % (
             event.button, event.x, event.y, event.xdata, event.ydata)
