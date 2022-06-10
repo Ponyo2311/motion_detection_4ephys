@@ -38,7 +38,7 @@ git clone https://github.com/Ponyo2311/motion_detection_4ephys.git
     <img src = "https://user-images.githubusercontent.com/65451658/172964114-f20cd5e4-af56-4f90-87bc-e6d386e4365e.png" width="800" height="150">
 </p>
 <br>
-2) In vpp/video_processing/motion_detector_MVMwriter.py, change the directories where you'd like to safe the results.
+2) In vpp/video_processing/motion_detector_MVMwriter.py, change the directories where you'd like to safe the results.<br>
 <p align ="left">
     <img src = "https://user-images.githubusercontent.com/65451658/172964457-05318e0b-9e4b-424f-9d85-d0b3cef93477.png"
          width="600" height="100">
@@ -46,8 +46,8 @@ git clone https://github.com/Ponyo2311/motion_detection_4ephys.git
 <br>
 - The outputs are a csv with timestamp, frame number, and movement for rat(s)  
 - rat1 is always the rat on the left of the screen and rat 2 on the right.
-- json file with coordinates of the frame (see below) you selected for the processing.
-3) When the directories are defined, run vpp/video_processing/getting_manual_coordinates_CLASS.py.
+- json file with coordinates of the frame (see below) you selected for the processing.<br>
+3) When the directories are defined, run vpp/video_processing/getting_manual_coordinates_CLASS.py.<br>
 4) When you click on RUN, there will be an image - first frame - displayed:<br>
 <p align ="left">
     <img src = "https://user-images.githubusercontent.com/65451658/172965394-254f81a5-a4d8-4b45-8e5f-6cc7edac0ddd.png" width="600" height="400"><br>
@@ -66,5 +66,5 @@ git clone https://github.com/Ponyo2311/motion_detection_4ephys.git
 + !! it is made for file-tree, such that every session has it's own folder. !!<br>
 ![image](https://user-images.githubusercontent.com/65451658/172966213-b19340b7-abee-4ad3-9f3d-afb1004aedb5.png)
 
- ## 4) Plot code is to finish 
+ ## 4) Plot code to finish 
  - removing too high values (produced by the light switch or the experimenter)
