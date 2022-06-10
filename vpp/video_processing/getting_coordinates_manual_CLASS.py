@@ -19,14 +19,8 @@ import cv2
 from motion_detector_MVMwriter import motion_detector_MVMwriter
 
 
-<<<<<<< Updated upstream:vpp/video_processing/getting_coordinates_manual_CLASS.py
 #path to video
 path2vid_test="/media/data-119/Matthias_mvm/Rat596_20210701_104608/Basler_acA1300-60gmNIR__21471690__20210701_104608310.mp4"
-=======
-#path to test video
-path2vid_test="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/rats16s_Basler_acA1300-60gmNIR__21471690__20211207_113623925.mp4"
-
->>>>>>> Stashed changes:vpp/getting_coordinates_manual_CLASS.py
 
 
 class Rat_coords:
