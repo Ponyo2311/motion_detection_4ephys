@@ -2,9 +2,14 @@
 """
 Created on Mon Mar 21 19:01:31 2022
 
-@author: domin
+@author: domi
 """
-#imports
+#NOTES ABOUT RAT SLEEP
+#The study looked at 20 albino rats and recorded their sleeping 
+#and waking times between 8 a.m. and 8 p.m. Of those 12 hours, 
+#rats snoozed more than nine hours. The rest of the time they 
+#were awake and active, awake and resting, or half-awake.
+
 
 from motion_detector import resizing
 #from getting_coordinates_manual_CLASS import Rat_coords
@@ -14,9 +19,14 @@ import cv2
 from motion_detector_MVMwriter import motion_detector_MVMwriter
 
 
+<<<<<<< Updated upstream:vpp/video_processing/getting_coordinates_manual_CLASS.py
+#path to video
+path2vid_test="/media/data-119/Matthias_mvm/Rat596_20210701_104608/Basler_acA1300-60gmNIR__21471690__20210701_104608310.mp4"
+=======
 #path to test video
-path2vid_test="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/Basler_acA1300-60gmNIR__21471690__20211207_113623925_SHORT_half_min.mp4"
+path2vid_test="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/rats16s_Basler_acA1300-60gmNIR__21471690__20211207_113623925.mp4"
 
+>>>>>>> Stashed changes:vpp/getting_coordinates_manual_CLASS.py
 
 
 class Rat_coords:

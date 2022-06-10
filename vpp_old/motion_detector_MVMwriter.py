@@ -29,8 +29,8 @@ def motion_detector_MVMwriter(co,
                               #rm, #rat movememnt calss object
                               scale_percent=50, area=20, delta_thresh=5,
                               plotting_realTime = False, #set this on if you wanna see the processing
-                    output_4csv="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/CSV_outputs/",
-                    output_4npy="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/NPY_outputs/"):
+                    output_4csv="/media/data-119/Rat628-20210714/",
+                    output_4npy="/media/data-119/Rat628-20210714/"):
                    # output_rat1_mp4="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/video_outputs/test_rat1{}".format(format_output),
                    # output_rat2_mp4="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/video_outputs/test_rat2.{}".format(format_output)):
     """
@@ -74,8 +74,10 @@ def motion_detector_MVMwriter(co,
                        shape=(2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width))
     #store shape of npy array into metada for reload
     json_str = {
-        "shape" : [2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width]
+        "shape4vidReconstraction" : [2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width],
+        "coordinatesOfFrameSelections" : coordinates #you can plot it later
         }
+    print("Expected n of frames: {}".format(vs.get(cv2.CAP_PROP_FRAME_COUNT)))
     
     #initiate PROCESSING FramePerSec (FPS) count
     fps = FPS().start()
@@ -84,8 +86,8 @@ def motion_detector_MVMwriter(co,
     avgframe = [[], []]
     frameDelta = [[], []]
     thresh = [[], []]
-    # #arrayList------------------------------------------------------------------------------------
-    # arrList = [[],[]]
+    #arrayList------------------------------------------------------------------------------------
+    arrList = [[],[]]
 
     # initiate dictionary
     ts_dict = {"frame_nb": [], "millisec": [], "mvm_rat1": [], "mvm_rat2": []}
@@ -157,7 +159,7 @@ def motion_detector_MVMwriter(co,
             # thresh[i] /= 255
             
             #append processed frames to list in uint8 format
-            #arrList[i].append(thresh[i])
+            arrList[i].append(thresh[i])
             
             #write into memmaped npy
             npyMap[i][n] = thresh[i]
@@ -177,6 +179,8 @@ def motion_detector_MVMwriter(co,
          
         #itter frame count
         n += 1
+        if n == 100:
+            print("processing...")
         
         if plotting_realTime:
             # DISPLAY VIDEOS (IT'S at least 2x LONGER THIS WAY... 92 vs. 177 FPS)
@@ -193,6 +197,7 @@ def motion_detector_MVMwriter(co,
     fps.stop()
     print("[INFO] elapsed time: {:.2f}".format(fps.elapsed()))
     print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
+    print("Processed number of frames: {}".format(n))
 
     # CLEAN UP videoCapture * videoWriter objects
     vs.release()
@@ -206,8 +211,8 @@ def motion_detector_MVMwriter(co,
 
     # get path for csv output, npy output & init of timestamp (extracted from the video filename)
     newpath_csv, first_stamp = csv_name_creator(path, output_folder=output_4csv)
-    # newpath_npy_rat1 = npy_name_creator(path, output_folder=output_4npy, rat="rat1")--------------------
-    # newpath_npy_rat2 = npy_name_creator(path, output_folder=output_4npy, rat="rat2")--------------------
+    newpath_npy_rat1 = npy_name_creator(path, output_folder=output_4npy, rat="rat1")#--------------------
+    newpath_npy_rat2 = npy_name_creator(path, output_folder=output_4npy, rat="rat2")#--------------------
     
 
     # convert dict do pandas data frame...
@@ -241,8 +246,8 @@ def motion_detector_MVMwriter(co,
     with open(newpath_npy[:-4]+".json", "w") as outjson:
         json.dump(json_str, outjson)
     
-    # np.save(newpath_npy_rat1, arrList[0])--------------------------------------------------------------
-    # np.save(newpath_npy_rat2, arrList[1])-----------------------------------------------------------------
+    np.save(newpath_npy_rat1, arrList[0])#--------------------------------------------------------------
+    np.save(newpath_npy_rat2, arrList[1])#-----------------------------------------------------------------
 
 #following must be commented when used together with getting_coordinates_Class
 # #path to test video

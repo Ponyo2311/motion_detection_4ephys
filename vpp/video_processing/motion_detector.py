@@ -6,11 +6,14 @@ import os
 import numpy as np
 
 
-def csv_name_creator(path, output_folder="/home/domi/Documents/video_processing/CSV_data"):
-    """path: folder+ file_name of the video
-    output_folder: where all the csv files should be stored
-    return:- a string path as input for pandas 'to_csv()' fun
-           - timestamp of the exact date&time of the beginning of the recording"""
+def csv_name_creator(path, output_folder="/media/data-119/rat596_20210701_184333"):
+    """
+    path: folder + file_name of the video
+    output_folder: where the csv files should be stored
+    returns :
+        - a string path as input for pandas 'to_csv()' fun
+        - timestamp of the exact date&time of the beginning of the recording
+    """
 
     # extract name of the video
     try:
@@ -41,7 +44,7 @@ def csv_name_creator(path, output_folder="/home/domi/Documents/video_processing/
 
     return new_path, first_stamp
 
-def npy_name_creator(path, output_folder="/home/domi/Documents/video_processing/CSV_data", rat="rat1"):
+def npy_name_creator(path, output_folder="/media/data-119/rat596_20210701_184333", rat="rat1"):
     """path: folder+ file_name of the video
     output_folder: where all the npy files should be stored
     return:- a string path as input for np.save() fun"""
@@ -271,10 +274,10 @@ def motion_detector(path, scale_percent=40, area=20, delta_thresh=5,
     # return ts_df
 
 
-# executable motion_detector
-if __name__ == "__main__":
-    import sys
+# # executable motion_detector
+# if __name__ == "__main__":
+#     import sys
 
-    motion_detector(sys.argv[1], output_4csv=NEWPATH)  # sys.argv[1] is path; sys.argv[0] is the name of the script.
+#     motion_detector(sys.argv[1], output_4csv=NEWPATH)  # sys.argv[1] is path; sys.argv[0] is the name of the script.
 
-import sys
+# import sys
