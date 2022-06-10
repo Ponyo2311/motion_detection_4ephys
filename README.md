@@ -54,7 +54,6 @@ conda install spyder<br>
 - the clicks should be in an order - from left to right, such as :<br>
 <p align ="left">
     <img src = "https://user-images.githubusercontent.com/65451658/172965444-540613d7-ec12-4981-ae4e-f7c9c80ae584.png" width="600" height="400"><br>
-
 - when you click 4 times, the picture will disappear and the detector is running.
 
 # 3) Synchronizing + generation of .txt files:
