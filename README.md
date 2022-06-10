@@ -2,7 +2,8 @@
 
 
 <p align ="center">
-    <img src = "https://user-images.githubusercontent.com/65451658/172926414-1a9c5103-29ff-405a-99e0-2b1184ac7db9.gif">
+    <img src = "https://user-images.githubusercontent.com/65451658/172926414-1a9c5103-29ff-405a-99e0-2b1184ac7db9.gif"
+         width="400" height="600">
 </p>
 <br>
 
@@ -33,7 +34,7 @@ conda install spyder<br>
 !! The motion detector extracts the date from the name of the video, so don't change that one !!
 1) open vpp/video_processing/getting_manual_coordinates_CLASS.py, change the directory to video (path2vid_test). This path contains the name of the file as well (ends with .mp4)<br>
 <p align ="center">
-    <img src = "https://user-images.githubusercontent.com/65451658/172964114-f20cd5e4-af56-4f90-87bc-e6d386e4365e.png" width="200" height="40">
+    <img src = "https://user-images.githubusercontent.com/65451658/172964114-f20cd5e4-af56-4f90-87bc-e6d386e4365e.png" width="400" height="80">
 </p>
 <br>
 2) In vpp/video_processing/motion_detector_MVMwriter.py, change the directories where you'd like to safe the results.
