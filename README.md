@@ -60,5 +60,9 @@ conda install spyder<br>
 + Pipeline uses modules saved in vpp/utils<br>
 + applied in notebooks named 'Processing_Movement_*'<br>
 + in the example below, w627 is a path to folder where the (symlink) video and csv of the session are stored. 
++ TTL_2 folder is path to events folder, lfp_tmp_folder is path to lfp folder. 
++ This step would possible to automatize, but the rat folders should be named by the full date of the session. 
 + !! it is made for file-tree, such that every session has it's own folder. !!<br>
 ![image](https://user-images.githubusercontent.com/65451658/172966213-b19340b7-abee-4ad3-9f3d-afb1004aedb5.png)
+
+ # 4) Plot code is to finish - removing too high values (produced by the light switch or the experimenter)
