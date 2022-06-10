@@ -40,7 +40,7 @@ conda install spyder<br>
 2) In vpp/video_processing/motion_detector_MVMwriter.py, change the directories where you'd like to safe the results.
 <p align ="center">
     <img src = "https://user-images.githubusercontent.com/65451658/172964457-05318e0b-9e4b-424f-9d85-d0b3cef93477.png"
-         width="800" height="150">
+         width="600" height="100">
 </p>
 <br>
 - The outputs are a csv with timestamp, frame number, and movement for rat(s)  
