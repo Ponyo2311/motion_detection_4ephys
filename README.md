@@ -6,8 +6,7 @@
 <br>
 
 <p align ="center">
-    <img src = "https://user-images.githubusercontent.com/65451658/172926414-1a9c5103-29ff-405a-99e0-2b1184ac7db9.gif"
-         width="600" height="400">
+    <img src = "https://user-images.githubusercontent.com/65451658/173057656-d93134b8-684f-4a54-b8b0-2dd2baedb2aa.gif">
 </p>
 <br>
 
