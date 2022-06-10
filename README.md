@@ -6,7 +6,7 @@
 <br>
 
 <p align ="center">
-    <img src = "https://user-images.githubusercontent.com/65451658/173059247-49ad4012-d245-4648-91cb-09762311f91c.gif">
+    <img src = "https://user-images.githubusercontent.com/65451658/173108006-a974da64-965c-475d-93df-bd676d6a9d86.gif">
 </p>
 <br>
 
