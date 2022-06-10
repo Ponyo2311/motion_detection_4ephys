@@ -29,8 +29,12 @@ jupyter kernelspec list<br>
 conda install spyder<br>
 
 ## 2) Using Motion Detector
+- clone this repo 
 <br>
 git clone https://github.com/Ponyo2311/motion_detection_4ephys.git<br>
+<br>
+- open spyder (with vidpenv activated)<br>
+spyder<br>
 <br>
 !! The motion detector extracts the date from the name of the video, so don't change that one !!
 1) open vpp/video_processing/getting_manual_coordinates_CLASS.py, change the directory to video (path2vid_test). This path contains the name of the file as well (ends with .mp4)<br>
@@ -62,7 +66,7 @@ git clone https://github.com/Ponyo2311/motion_detection_4ephys.git<br>
 + applied in notebooks named 'Processing_Movement_*'<br>
 + in the example below, w627 is a path to folder where the (symlink) video and csv of the session are stored. 
 + TTL_2 folder is path to events folder, lfp_tmp_folder is path to lfp folder. 
-+ This step would possible to automatize, but the rat folders should be named by the full date of the session. 
++ This step would be possible to automatize, but the rat folders should be named by the full date of the session. 
 + !! it is made for file-tree, such that every session has it's own folder. !!<br>
 ![image](https://user-images.githubusercontent.com/65451658/172966213-b19340b7-abee-4ad3-9f3d-afb1004aedb5.png)
 
