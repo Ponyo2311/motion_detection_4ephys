@@ -33,12 +33,12 @@ conda install spyder<br>
 # 2) Using Motion Detector
 !! The motion detector extracts the date from the name of the video, so don't change that one !!
 1) open vpp/video_processing/getting_manual_coordinates_CLASS.py, change the directory to video (path2vid_test). This path contains the name of the file as well (ends with .mp4)<br>
-<p align ="center">
+<p align ="left">
     <img src = "https://user-images.githubusercontent.com/65451658/172964114-f20cd5e4-af56-4f90-87bc-e6d386e4365e.png" width="800" height="150">
 </p>
 <br>
 2) In vpp/video_processing/motion_detector_MVMwriter.py, change the directories where you'd like to safe the results.
-<p align ="center">
+<p align ="left">
     <img src = "https://user-images.githubusercontent.com/65451658/172964457-05318e0b-9e4b-424f-9d85-d0b3cef93477.png"
          width="600" height="100">
 </p>
@@ -48,8 +48,13 @@ conda install spyder<br>
 - json file with coordinates of the frame (see below) you selected for the processing.
 3) When the directories are defined, run vpp/video_processing/getting_manual_coordinates_CLASS.py.
 4) When you click on RUN, there will be an image - first frame - displayed:
+<p align ="left">
+    <img src = "https://user-images.githubusercontent.com/65451658/172965394-254f81a5-a4d8-4b45-8e5f-6cc7edac0ddd.png" width="600" height="400">
 - This is to select manually the frame for processing for each rat (to avoid overlapping in case of bad camera angle)
 - the clicks should be in an order - from left to right, such as :
+<p align ="left">
+    <img src = "https://user-images.githubusercontent.com/65451658/172965444-540613d7-ec12-4981-ae4e-f7c9c80ae584.png" width="600" height="400">
+
 - when you click 4 times, the picture will disappear and the detector is running.
 
 # 3) Synchronizing + generation of .txt files:
