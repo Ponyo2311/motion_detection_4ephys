@@ -1,5 +1,9 @@
 # motion_detection_4ephys
-
+- Create movement variable from camera recording 
+- Manual selection of frame coordiantes for rats
+- Real time plots
+- Synchronize with ephys time using .npy output from Basler
+<br>
 
 <p align ="center">
     <img src = "https://user-images.githubusercontent.com/65451658/172926414-1a9c5103-29ff-405a-99e0-2b1184ac7db9.gif"
@@ -7,13 +11,7 @@
 </p>
 <br>
 
-
-- Create movement variable from camera recording 
-- Manual selection of frame coordiantes for rats
-- Real time plots
-- Synchronize with ephys time using .npy output from Basler
-
-# 1) Setting up environment
+## 1) Setting up environment
 conda update conda<br>
 conda create --no-default-packages -n vidpenv python=3.7 anaconda<br>
 conda activate vidpenv<br>
@@ -30,7 +28,7 @@ jupyter kernelspec list<br>
 
 conda install spyder<br>
 
-# 2) Using Motion Detector
+## 2) Using Motion Detector
 <br>
 git clone https://github.com/Ponyo2311/motion_detection_4ephys.git
 <br>
@@ -59,7 +57,7 @@ git clone https://github.com/Ponyo2311/motion_detection_4ephys.git
     <img src = "https://user-images.githubusercontent.com/65451658/172965444-540613d7-ec12-4981-ae4e-f7c9c80ae584.png" width="600" height="400"><br>
 - when you click 4 times, the picture will disappear and the detector is running.
 
-# 3) Synchronizing + generation of .txt files:
+## 3) Synchronizing + generation of .txt files:
 + Pipeline uses modules saved in vpp/utils<br>
 + applied in notebooks named 'Processing_Movement_*'<br>
 + in the example below, w627 is a path to folder where the (symlink) video and csv of the session are stored. 
@@ -68,5 +66,5 @@ git clone https://github.com/Ponyo2311/motion_detection_4ephys.git
 + !! it is made for file-tree, such that every session has it's own folder. !!<br>
 ![image](https://user-images.githubusercontent.com/65451658/172966213-b19340b7-abee-4ad3-9f3d-afb1004aedb5.png)
 
- # 4) Plot code is to finish 
+ ## 4) Plot code is to finish 
  - removing too high values (produced by the light switch or the experimenter)
