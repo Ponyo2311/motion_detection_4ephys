@@ -30,7 +30,6 @@ conda install spyder<br>
 
 ## 2) Using Motion Detector
 - clone this repo 
-<br>
 git clone https://github.com/Ponyo2311/motion_detection_4ephys.git<br>
 <br>
 - open spyder (with vidpenv activated)<br>
