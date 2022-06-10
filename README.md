@@ -47,13 +47,13 @@ conda install spyder<br>
 - rat1 is always the rat on the left of the screen and rat 2 on the right.
 - json file with coordinates of the frame (see below) you selected for the processing.
 3) When the directories are defined, run vpp/video_processing/getting_manual_coordinates_CLASS.py.
-4) When you click on RUN, there will be an image - first frame - displayed:
+4) When you click on RUN, there will be an image - first frame - displayed:<br>
 <p align ="left">
-    <img src = "https://user-images.githubusercontent.com/65451658/172965394-254f81a5-a4d8-4b45-8e5f-6cc7edac0ddd.png" width="600" height="400">
+    <img src = "https://user-images.githubusercontent.com/65451658/172965394-254f81a5-a4d8-4b45-8e5f-6cc7edac0ddd.png" width="600" height="400"><br>
 - This is to select manually the frame for processing for each rat (to avoid overlapping in case of bad camera angle)
-- the clicks should be in an order - from left to right, such as :
+- the clicks should be in an order - from left to right, such as :<br>
 <p align ="left">
-    <img src = "https://user-images.githubusercontent.com/65451658/172965444-540613d7-ec12-4981-ae4e-f7c9c80ae584.png" width="600" height="400">
+    <img src = "https://user-images.githubusercontent.com/65451658/172965444-540613d7-ec12-4981-ae4e-f7c9c80ae584.png" width="600" height="400"><br>
 
 - when you click 4 times, the picture will disappear and the detector is running.
 
