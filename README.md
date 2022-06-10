@@ -59,4 +59,6 @@ conda install spyder<br>
 # 3) Synchronizing + generation of .txt files:
 + Pipeline uses modules saved in vpp/utils<br>
 + applied in notebooks named 'Processing_Movement_*'<br>
-
++ in the example below, w627 is a path to folder where the (symlink) video and csv of the session are stored. 
++ !! it is made for file-tree, such that every session has it's own folder. !!<br>
+![image](https://user-images.githubusercontent.com/65451658/172966213-b19340b7-abee-4ad3-9f3d-afb1004aedb5.png)
