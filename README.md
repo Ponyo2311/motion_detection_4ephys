@@ -65,4 +65,5 @@ conda install spyder<br>
 + !! it is made for file-tree, such that every session has it's own folder. !!<br>
 ![image](https://user-images.githubusercontent.com/65451658/172966213-b19340b7-abee-4ad3-9f3d-afb1004aedb5.png)
 
- # 4) Plot code is to finish - removing too high values (produced by the light switch or the experimenter)
+ # 4) Plot code is to finish 
+ - removing too high values (produced by the light switch or the experimenter)
