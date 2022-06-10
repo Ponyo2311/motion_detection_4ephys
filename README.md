@@ -36,13 +36,16 @@ conda install spyder<br>
     <img src = "https://user-images.githubusercontent.com/65451658/172964114-f20cd5e4-af56-4f90-87bc-e6d386e4365e.png">
 </p>
 <br>
-
-3) In vpp/video_processing/motion_detector_MVMwriter.py, change the directories where you'd like to safe the results.
+2) In vpp/video_processing/motion_detector_MVMwriter.py, change the directories where you'd like to safe the results.
+<p align ="center">
+    <img src = "https://user-images.githubusercontent.com/65451658/172964457-05318e0b-9e4b-424f-9d85-d0b3cef93477.png">
+</p>
+<br>
 - The outputs are a csv with timestamp, frame number, and movement for rat(s)  
 - rat1 is always the rat on the left of the screen and rat 2 on the right.
 - json file with coordinates of the frame (see below) you selected for the processing.
-4) When the directories are defined, run vpp/video_processing/getting_manual_coordinates_CLASS.py.
-5) When you click on RUN, there will be an image - first frame - displayed:
+3) When the directories are defined, run vpp/video_processing/getting_manual_coordinates_CLASS.py.
+4) When you click on RUN, there will be an image - first frame - displayed:
 - This is to select manually the frame for processing for each rat (to avoid overlapping in case of bad camera angle)
 - the clicks should be in an order - from left to right, such as :
 - when you click 4 times, the picture will disappear and the detector is running.
