@@ -34,12 +34,13 @@ conda install spyder<br>
 !! The motion detector extracts the date from the name of the video, so don't change that one !!
 1) open vpp/video_processing/getting_manual_coordinates_CLASS.py, change the directory to video (path2vid_test). This path contains the name of the file as well (ends with .mp4)<br>
 <p align ="center">
-    <img src = "https://user-images.githubusercontent.com/65451658/172964114-f20cd5e4-af56-4f90-87bc-e6d386e4365e.png" width="800" height="1500">
+    <img src = "https://user-images.githubusercontent.com/65451658/172964114-f20cd5e4-af56-4f90-87bc-e6d386e4365e.png" width="800" height="150">
 </p>
 <br>
 2) In vpp/video_processing/motion_detector_MVMwriter.py, change the directories where you'd like to safe the results.
 <p align ="center">
-    <img src = "https://user-images.githubusercontent.com/65451658/172964457-05318e0b-9e4b-424f-9d85-d0b3cef93477.png">
+    <img src = "https://user-images.githubusercontent.com/65451658/172964457-05318e0b-9e4b-424f-9d85-d0b3cef93477.png"
+         width="800" height="150">
 </p>
 <br>
 - The outputs are a csv with timestamp, frame number, and movement for rat(s)  
