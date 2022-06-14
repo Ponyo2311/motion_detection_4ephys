@@ -2,7 +2,7 @@
 """
 Created on Thu Mar 24 18:43:31 2022
 
-@author: domin
+@author: domi
 """
 
 import pandas as pd
