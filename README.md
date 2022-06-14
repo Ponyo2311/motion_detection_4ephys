@@ -45,7 +45,7 @@ spyder<br>
 <br>
 2) In vpp/video_processing/motion_detector_MVMwriter.py, change the directories where you'd like to safe the results.<br>
 <p align ="left">
-    <img src = "https://user-images.githubusercontent.com/65451658/172964457-05318e0b-9e4b-424f-9d85-d0b3cef93477.png"
+    <img src = "https://user-images.githubusercontent.com/65451658/173513538-33553f62-abc4-43df-bf93-94e684907baa.png"
          width="600" height="100">
 </p>
 <br>
