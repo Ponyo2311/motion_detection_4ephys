@@ -8,7 +8,6 @@ Created on Thu Mar 24 18:43:31 2022
 import pandas as pd
 import numpy as np
 import os
-#don't need this: import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 #to save animation as GIF:
 #https://towardsdatascience.com/basics-of-gifs-with-pythons-matplotlib-54dd544b6f30
@@ -18,9 +17,9 @@ import json
 
 path2output = "C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/CSV_outputs/"
 testing_CSV = os.path.join(path2output,"acA1300-60gmNIR__21471690__20211207_113623925.csv")
-path2vid = "C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/rats16s_Basler_acA1300-60gmNIR__21471690__20211207_113623925.mp4"
-path2npy = "C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/NPY_outputs/acA1300-60gmNIR__21471690__20211207_113623925_rat1&2.npy"
-path2json = "C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/NPY_outputs/acA1300-60gmNIR__21471690__20211207_113623925_rat1&2.json"
+path2vid = "C:/Users/domi/.../motion_detection_4ephys/data/rats16s_Basler_acA1300-60gmNIR__21471690__20211207_113623925.mp4"
+path2npy = "C:/Users/domi/.../motion_detection_4ephys/data/NPY_outputs/acA1300-60gmNIR__21471690__20211207_113623925_rat1&2.npy"
+path2json = "C:/Users/domi/.../motion_detection_4ephys/data/NPY_outputs/acA1300-60gmNIR__21471690__20211207_113623925_rat1&2.json"
 
 ts_dict = pd.read_csv(testing_CSV, sep= ",")
 #print(ts_dict.head())
@@ -244,7 +243,4 @@ if __name__ == '__main__':
     for filename in set(rm.filenames):
         os.remove(os.path.join(path2output,"figs",filename))
  
-
-
-#anim.save('C:\\Users\\domin\\Documents\\SCHOOL\\STAGE2\\motion_detection_4ephys\\data\\anim.mp4', writer=writergif)
 
