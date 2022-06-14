@@ -80,7 +80,7 @@ class Rat_coords:
         
         Click from left to right, to upper and lower corner resp. to select frames for rats.
         
-        After 4 clicks, the processing starts.        
+        After number_of_rats*2 clicks, the processing starts.        
         '''
             
         tx = 'button=%d, x=%d, y=%d, xdata=%f, ydata=%f' % (
@@ -98,7 +98,7 @@ class Rat_coords:
         if len(self.coords_rat) == self.n_rats*2: #4 by default
             self.fig.canvas.mpl_disconnect(self.cid_rats)
             
-            #close when selected rectangles for both rats
+            #close when selected rectangles for all rats
             plt.close()
             
             #path2vid_test="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/Basler_acA1300-60gmNIR__21471690__20211207_113623925_SHORT.mp4"
