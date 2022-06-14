@@ -2,7 +2,7 @@
 """
 Created on Tue Mar 22 18:34:35 2022
 
-@author: domin
+@author: domi
 """
 #Have a look at this: (mathematical explanations through animations)
 #https://towardsdatascience.com/take-your-python-visualizations-to-the-next-level-with-manim-ce9ad7ff66bf
@@ -25,20 +25,21 @@ import json
 def motion_detector_MVMwriter(co, 
                               fw, fh, #need this for Writer object
                               path, 
+                              number_of_rats, #defined in getting_manual_coordinates_CLASS.py
                               #coordinates, frame_width, frame_height,
                               #rm, #rat movememnt calss object
                               scale_percent=50, area=20, delta_thresh=5,
                               plotting_realTime =True, #set this on if you wanna see the processing
-                    output_4csv="/media/data-119/Matthias_mvm/Rat596_20210701_104608/",
-                    output_4npy="/media/data-119/Matthias_mvm/Rat596_20210701_104608/"):
+                              save_npy = False,
+                    output_4csv="/media/data-119/.../Rat596_20210701_104608/",
+                    output_4npy="/media/data-119/.../Rat596_20210701_104608/"):
                    # output_rat1_mp4="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/video_outputs/test_rat1{}".format(format_output),
                    # output_rat2_mp4="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/video_outputs/test_rat2.{}".format(format_output)):
     """
     IMPORTANT: when selecting rectagles for rats -> rat 1 is on the left on the picture
-    path: path to the video
-    area: minimum area size.... to use when detection the rat itself... 
-    output_4csv: it's not txt file yet.. you can precise that later
-    output mp4s: not working.. will save in npy files -> get 4sec buffer and record when the movement stops
+    path: path to the video (this is defined in getting_manual_coordinates_CLASS.py)
+    output_4csv: collects timestamp (date&time + sec count), frame number, movement 
+    output npy: used to save json coordinates. If you're interested in saving processed frames, enable save_npy.
     """
     
     #if specified output folder doesn't exist, create it
@@ -52,28 +53,21 @@ def motion_detector_MVMwriter(co,
     #fw and fh needed for Writer object
     frame_width = fw
     frame_height = fh
-    
-    
-    ## ERROR HERE ## DEFINE THE CODEC AND CREATE VideoWriter object. Not working --------------------
-    # if format_output == '.mp4':
-    #     out_rat1 = cv2.VideoWriter(output_rat1_mp4, cv2.VideoWriter_fourcc(*'mp4v'), 25, (frame_width,frame_height))
-    #     out_rat2 = cv2.VideoWriter(output_rat2_mp4,cv2.VideoWriter_fourcc(*'mp4v'), 25, (frame_width,frame_height))
-    # elif format_output == '.avi':
-    #     out_rat1 = cv2.VideoWriter(output_rat1_mp4, cv2.VideoWriter_fourcc(*'DIVX'), 25, (frame_width,frame_height))
-    #     out_rat2 = cv2.VideoWriter(output_rat2_mp4,cv2.VideoWriter_fourcc(*'DIVX'), 25, (frame_width,frame_height))
-    
+        
     # read from a video file & get video parameter FramePerSec (FPS)
     vs = cv2.VideoCapture(path)
     fps_vs = vs.get(cv2.CAP_PROP_FPS)
     #print("Estimated frame rate of the file: {}".format(fps_vs))
     
-    #WRITE BIG ARRAY WITH NP.MEMMAP()
-    newpath_npy = npy_name_creator(path, output_folder=output_4npy, rat="rat1&2")
+    #create path to save json with coordinates (and npy if save_npy)
+    newpath_npy = npy_name_creator(path, output_folder=output_4npy, rat="all_rats")
     #carful.. vs.get(cv2.CAP_PROP_FRAME_COUNT) not accurate!
     
-    # #crete mapping object to save big array#-----------------------------------------------------------------memmap
-    # npyMap = np.memmap(newpath_npy, dtype='uint8', mode='w+', 
-    #                    shape=(2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width))#-----------------
+    #WRITE BIG ARRAY WITH NP.MEMMAP()
+    if save_npy:
+        #crete mapping object to save big array#-----------------------------------------------------------------memmap
+        npyMap = np.memmap(newpath_npy, dtype='uint8', mode='w+', 
+                           shape=(2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width))#-----------------
     
     #store shape of npy array into metada for reload
     json_str = {
@@ -89,8 +83,7 @@ def motion_detector_MVMwriter(co,
     avgframe = [[], []]
     frameDelta = [[], []]
     thresh = [[], []]
-    # #arrayList------------------------------------------------------------------------------------
-    # arrList = [[],[]]
+    if save_npy:
 
     # initiate dictionary
     ts_dict = {"frame_nb": [], "millisec": [], "mvm_rat1": [], "mvm_rat2": []}
@@ -127,7 +120,7 @@ def motion_detector_MVMwriter(co,
 
         
         # itter over rats
-        for i in range(2):
+        for i in range(number_of_rats): #default = 2
             #apply cropped mask with bitwise apperation
             tmp_rat_sections = cv2.bitwise_and(gray, gray, mask=mask_rat[i])
 
@@ -150,28 +143,12 @@ def motion_detector_MVMwriter(co,
             
             
         # append mvm count for each rat
-        for i in range(2):
+        for i in range(number_of_rats): #default = 2
             ts_dict[f"mvm_rat{i + 1}"].append(np.sum(thresh[i]))
             
-            #NOT WORKING
-            #write the thresholded frame into 'output.mp4' (must be converted back to BGR otherwise it won't write)
-            #https://answers.opencv.org/question/66545/problems-with-the-video-writer-in-opencv-300/
-            #print(thresh[0].dtype)---> uint8
-            # #convert from uint8 to float32:
-            # thresh[i] = thresh[i].astype(np.float32)
-            # thresh[i] /= 255
-            
-            #append processed frames to list in uint8 format
-            #arrList[i].append(thresh[i])
-            
-            # #write into memmaped npy#--------------------------------------------------------------------------------memmap
-            # npyMap[i][n] = thresh[i]#-------------------------------------------------------------------------------------
-           
-        #NOT WORKING
-        # out_rat1.write(cv2.cvtColor(thresh[0], cv2.COLOR_GRAY2BGR))
-        # out_rat2.write(cv2.cvtColor(thresh[1], cv2.COLOR_GRAY2BGR))
-        # out_rat1.write(thresh[0])
-        # out_rat2.write(thresh[1])
+            if save npy:
+                #write into memmaped npy#--------------------------------------------------------------------------------memmap
+                npyMap[i][n] = thresh[i]#-------------------------------------------------------------------------------------
         
         # update FPS counter
         fps.update()
@@ -183,7 +160,9 @@ def motion_detector_MVMwriter(co,
         #itter frame count
         n += 1
         if n == 100:
-            print("processing...")
+            print("Processed 100 frames and still processing...")
+        elif n == 10000:
+            print("Processed 10000 frames and still processing...")
         
         if plotting_realTime:
             # DISPLAY VIDEOS (IT'S at least 2x LONGER THIS WAY... 92 vs. 177 FPS)
@@ -204,20 +183,16 @@ def motion_detector_MVMwriter(co,
 
     # CLEAN UP videoCapture * videoWriter objects
     vs.release()
-    #del npyMap #deletion flushes memory changes to disk before removing the object#--------------------- memmap
+    if save_npy:
+        del npyMap #deletion flushes memory changes to disk before removing the object#--------------------- memmap
     if plotting_realTime:
         plt.close('all')
         cv2.destroyAllWindows()
-    # #NOT WORKING
-    # out_rat1.release()
-    # out_rat2.release()
 
-    # get path for csv output, npy output & init of timestamp (extracted from the video filename)
+    # get path for csv output & init of timestamp (extracted from the video filename)
     newpath_csv, first_stamp = csv_name_creator(path, output_folder=output_4csv)
-    # newpath_npy_rat1 = npy_name_creator(path, output_folder=output_4npy, rat="rat1")--------------------
-    # newpath_npy_rat2 = npy_name_creator(path, output_folder=output_4npy, rat="rat2")--------------------
+    # newpath_npy_rat1 = npy_name_creator(path, output_folder=output_4npy, rat="rat1")-------------------
     
-
     # convert dict do pandas data frame...
     ts_df = pd.DataFrame(ts_dict)
 
@@ -248,11 +223,8 @@ def motion_detector_MVMwriter(co,
     #write JSON
     with open(newpath_npy[:-4]+".json", "w") as outjson:
         json.dump(json_str, outjson)
-    
-    # np.save(newpath_npy_rat1, arrList[0])--------------------------------------------------------------
-    # np.save(newpath_npy_rat2, arrList[1])-----------------------------------------------------------------
 
-#following must be commented when used together with getting_coordinates_Class
-# #path to test video
-# path2vid_test="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/Basler_acA1300-60gmNIR__21471690__20211207_113623925_SHORT.mp4"
-# motion_detector_MVMwriter(path2vid_test)
+#if __name__ == '__main__':
+#    #path to test video
+#    path2vid_test="C:/Users/.../motion_detection_4ephys/data/Basler_acA1300-60gmNIR__21471690__20211207_113623925_SHORT.mp4"
+#    motion_detector_MVMwriter(path2vid_test)
