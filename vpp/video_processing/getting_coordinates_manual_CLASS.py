@@ -20,7 +20,7 @@ from motion_detector_MVMwriter import motion_detector_MVMwriter
 
 
 #path to video
-path2vid_test="/media/data-119/Matthias_mvm/Rat596_20210701_104608/Basler_acA1300-60gmNIR__21471690__20210701_104608310.mp4"
+path2vid_test="/media/data-119/.../Rat596_20210701_104608/Basler_acA1300-60gmNIR__21471690__20210701_104608310.mp4"
 
 
 class Rat_coords:
@@ -35,9 +35,10 @@ class Rat_coords:
         #init path to vid string (empty)
         self.path2vid = ''
     
-    def shape_extractor(self, path2vid = path2vid_test, scale_percent = 50):
+    def shape_extractor(self, path2vid = path2vid_test, scale_percent = 50, number_of_rats = 2):
         '''STEP 1: GET SHAPE OF FRAMES'''
         
+        self.n_rats = number_of_rats
         self.scale_percent = scale_percent
         #create videocapture object to extract a frame
         vs_test = cv2.VideoCapture(path2vid)
@@ -94,7 +95,7 @@ class Rat_coords:
         self.coords_rat.append((int(self.ix_rat), int(self.iy_rat)))
         
         #disconect it
-        if len(self.coords_rat) == 4:
+        if len(self.coords_rat) == self.n_rats*2: #4 by default
             self.fig.canvas.mpl_disconnect(self.cid_rats)
             
             #close when selected rectangles for both rats
