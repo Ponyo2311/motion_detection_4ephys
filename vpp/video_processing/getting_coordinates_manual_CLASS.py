@@ -101,10 +101,10 @@ class Rat_coords:
             #close when selected rectangles for all rats
             plt.close()
             
-            #path2vid_test="C:/Users/domin/Documents/SCHOOL/STAGE2/motion_detection_4ephys/data/Basler_acA1300-60gmNIR__21471690__20211207_113623925_SHORT.mp4"
             motion_detector_MVMwriter(co = self.coords_rat, 
                                       scale_percent = self.scale_percent,
-                                      fw = self.x, fh = self.y, #need for Writer object (not working)
+                                      fw = self.x, fh = self.y, #need for Writer object 
+                                      number_of_rats = self.n_rats
                                       path = path2vid_test)
     
     def coord_extractor(self):
