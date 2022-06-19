@@ -71,8 +71,8 @@ def motion_detector_MVMwriter(co,
     
     #store shape of npy array into metada for reload
     json_str = {
-        "shape4vidReconstraction" : [2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width],
-        "coordinatesOfFrameSelections" : coordinates #you can plot it later
+        "shape": [2, int(vs.get(cv2.CAP_PROP_FRAME_COUNT)), frame_height, frame_width], #shape 4 vid Reconstraction
+        "coordinates": coordinates #you can plot it later                                #coordinates Of Frame Selections
         }
     print("Expected n of frames: {}".format(vs.get(cv2.CAP_PROP_FRAME_COUNT)))
     
