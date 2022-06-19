@@ -83,7 +83,6 @@ def motion_detector_MVMwriter(co,
     avgframe = [[], []]
     frameDelta = [[], []]
     thresh = [[], []]
-    if save_npy:
 
     # initiate dictionary
     ts_dict = {"frame_nb": [], "millisec": [], "mvm_rat1": [], "mvm_rat2": []}
@@ -146,7 +145,7 @@ def motion_detector_MVMwriter(co,
         for i in range(number_of_rats): #default = 2
             ts_dict[f"mvm_rat{i + 1}"].append(np.sum(thresh[i]))
             
-            if save npy:
+            if save_npy:
                 #write into memmaped npy#--------------------------------------------------------------------------------memmap
                 npyMap[i][n] = thresh[i]#-------------------------------------------------------------------------------------
         
