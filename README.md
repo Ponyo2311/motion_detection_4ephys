@@ -11,7 +11,7 @@
 <br>
 
 ## 1) Setting up environment
-'''
+```
 conda update conda<br>
 conda create --no-default-packages -n vidpenv python=3.7 anaconda<br>
 conda activate vidpenv<br>
@@ -19,24 +19,26 @@ pip install jupyterlab<br>
 pip install ipykernel<br>
 python -m ipykernel install --user --name=vidpenv<br>
 pip install opencv-python<br>
-'''
+```
 + verify list of environements available in Jupyter (vidpenv should appear there)
-'''
+```
 jupyter kernelspec list<br>
-'''
+```
 + instal spyder (if not installed yet)
-
+```
 conda install spyder<br>
-
+```
 ## 2) Using Motion Detector
 - clone this repo<br>
-
+```
 git clone https://github.com/Ponyo2311/motion_detection_4ephys.git<br>
+```
 <br>
 
 - open spyder (with vidpenv activated)<br>
-
-spyder<br>
+```
+spyder
+```
 <br>
 !! The motion detector extracts the date from the name of the video, so don't change that one !!
 1) open vpp/video_processing/getting_manual_coordinates_CLASS.py, change the directory to video (path2vid_test). This path contains the name of the file as well (ends with .mp4)<br>
