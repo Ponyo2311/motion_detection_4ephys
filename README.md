@@ -41,12 +41,12 @@ spyder
 ```
 <br>
 !! The motion detector extracts the date from the name of the video, so don't change that one !!
-1) open ```vpp/video_processing/getting_manual_coordinates_CLASS.py``` , change the directory to video (path2vid_test). This path contains the name of the file as well (ends with .mp4)<br>
+1) open vpp/video_processing/getting_manual_coordinates_CLASS.py , change the directory to video (path2vid_test). This path contains the name of the file as well (ends with .mp4)<br>
 <p align ="left">
     <img src = "https://user-images.githubusercontent.com/65451658/173512817-f8f72846-db3c-49ce-aa4f-fdcfc48b38be.png" width="800" height="150">
 </p>
 <br>
-2) In vpp/video_processing/motion_detector_MVMwriter.py, change the directories where you'd like to safe the results.<br>
+2) In ,code>vpp/video_processing/motion_detector_MVMwriter.py</code>, change the directories where you'd like to safe the results.<br>
 <p align ="left">
     <img src = "https://user-images.githubusercontent.com/65451658/173513538-33553f62-abc4-43df-bf93-94e684907baa.png"
          width="600" height="100">
