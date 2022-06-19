@@ -12,26 +12,26 @@
 
 ## 1) Setting up environment
 ```
-conda update conda<br>
-conda create --no-default-packages -n vidpenv python=3.7 anaconda<br>
-conda activate vidpenv<br>
-pip install jupyterlab<br>
-pip install ipykernel<br>
-python -m ipykernel install --user --name=vidpenv<br>
-pip install opencv-python<br>
+conda update conda
+conda create --no-default-packages -n vidpenv python=3.7 anaconda
+conda activate vidpenv
+pip install jupyterlab
+pip install ipykernel
+python -m ipykernel install --user --name=vidpenv
+pip install opencv-python
 ```
 + verify list of environements available in Jupyter (vidpenv should appear there)
 ```
-jupyter kernelspec list<br>
+jupyter kernelspec list
 ```
 + instal spyder (if not installed yet)
 ```
-conda install spyder<br>
+conda install spyder
 ```
 ## 2) Using Motion Detector
 - clone this repo<br>
 ```
-git clone https://github.com/Ponyo2311/motion_detection_4ephys.git<br>
+git clone https://github.com/Ponyo2311/motion_detection_4ephys.git
 ```
 <br>
 
